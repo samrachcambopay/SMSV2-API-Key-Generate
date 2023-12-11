@@ -1,0 +1,82 @@
+<!-- views/create-user.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create User</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #004466;
+    }
+
+    form {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      padding: 20px;
+      margin: 20px auto;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    form input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+    }
+
+    form button {
+      background-color: #004466;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    form button:hover {
+      background-color: #002233;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="/generate-key">Generate Key</a></li>
+      <li><a href="/api-keys">View API Key</a></li>
+      <li><a href="/create-user">Create User</a></li>
+      <li><a href="/view-users">View Users</a></li>
+      <li class="logout"><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <h1>Create User</h1>
+
+  <form action="/create-user" method="post">
+    <label for="username">Username:</label>
+    <input type="text" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+    <br>
+    <button type="submit">Create User</button>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+/* Navigation styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004466;
+  padding: 10px;
+  border-bottom: 1px solid white; /* Add a white border to the bottom */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  justify-content: flex-end; /* Align items to the right */
+}
+
+nav ul li {
+  margin: 0;
+  border-right: 1px solid white; /* Add white border to the right side of each li element */
+}
+
+nav ul li:first-child {
+  border-left: none; /* Remove border from the first li element to avoid extra border */
+}
+
+nav ul li.logout {
+  border: none; /* Remove border for the "Logout" button */
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+}
+
+.navbar ul li a:hover {
+  background-color: #002233;
+}
+
+.navbar ul li.logout {
+  margin-left: 10px;
+}
+
+.navbar ul li.logout a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+  background-color: #d9534f;
+  border-radius: 5px;
+}
+
+.navbar ul li.logout a:hover {
+  background-color: #c9302c;
+}
+
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #004466;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Users</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #004466;
+    }
+
+    .table {
+      width: 60%;
+      margin: 20px auto; /* Center the table by adding margin and setting auto for left and right margins */
+      border-collapse: collapse;
+    }
+
+    .table thead th,
+    .table thead td {
+      font-weight: 600;
+      font-size: 1rem;
+      border-bottom: 1px solid #ebedf3;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      text-align: center;
+      color: white;
+      background-color: rgb(0, 68, 102);
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+      border: 1px solid #ebedf3;
+      padding: 1rem;
+      text-align: center;
+      background-color: white;
+    }
+
+    /* Set a specific width for the "Action" column */
+    .table-bordered td:nth-child(2) {
+      width: 100px; 
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="/generate-key">Generate Key</a></li>
+      <li><a href="/api-keys">View API Key</a></li>
+      <li><a href="/create-user">Create User</a></li>
+      <li><a href="/view-users">View Users</a></li>
+      <li class="logout"><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <h1>View Users</h1>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.username %></td>
+          <td>
+            <a href="/edit-user/<%= user._id %>">Edit</a> | 
+            <a href="/delete-user/<%= user._id %>">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+</body>
+</html>

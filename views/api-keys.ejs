@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View API Keys</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+
+    .api-search-export {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px 0; 
+    }
+
+    .api-search-input {
+      width: 200px;
+      height: 30px;
+      border: 1px solid #004466;
+      border-radius: 15px;
+      padding: 5px 10px;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    .api-button-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .api-search-button,
+    .api-export-button {
+      width: 100px;
+      height: 40px;
+      background-color: #004466;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .api-search-button:hover,
+    .api-export-button:hover {
+      background-color: #002233;
+    }
+
+    .api-table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+
+    .api-table thead th,
+    .api-table thead td {
+      font-weight: 600;
+      font-size: 1rem;
+      border-bottom: 1px solid #ebedf3;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      text-align: center;
+      color: white;
+      background-color: rgb(0, 68, 102);
+    }
+
+    .api-table-bordered th,
+    .api-table-bordered td {
+      border: 1px solid #ebedf3;
+      padding: 1rem;
+      text-align: center;
+      background-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="/generate-key">Generate Key</a></li>
+      <li><a href="/api-keys">View API Key</a></li>
+      <li><a href="/create-user">Create User</a></li>
+      <li><a href="/view-users">View Users</a></li>
+      <li class="logout"><a href="/logout">Logout</a></li>
+    </ul>
+  </nav>
+
+  <h1>API Keys</h1>
+
+  <div class="api-search-export">
+    <form action="/search-api-keys" method="post" class="api-button-container">
+      <input type="text" name="search" placeholder="Enter name to search" class="api-search-input">
+      <button class="api-search-button" type="submit">Search</button>
+      <button class="api-export-button" formaction="/export-api-keys" formmethod="get">Export</button>
+    </form>
+  </div>
+  
+  <table class="api-table api-table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Key</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% apiKeys.forEach(key => { %>
+        <tr>
+          <td><%= key.name %></td>
+          <td><%= key.key %></td>
+          <td>
+            <a href="/edit-api-key/<%= key._id %>">Edit</a> | 
+            <a href="/delete-api-key/<%= key._id %>">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+</body>
+</html>
