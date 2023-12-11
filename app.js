@@ -14,10 +14,11 @@ const PORT = process.env.PORT || 1001;
 const sessionSecret = process.env.SESSION_SECRET || crypto.randomBytes(32).toString('hex');
 
 // Connect to MongoDB using the provided connection string or a default local URL
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/API_SMS_GEN', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://cbpsmstest:Cambopay2023@cluster0.9yz8ir7.mongodb.net/API_SMS_GEN?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
 
 // Define MongoDB schemas and models
 const apiKeySchema = new mongoose.Schema({
